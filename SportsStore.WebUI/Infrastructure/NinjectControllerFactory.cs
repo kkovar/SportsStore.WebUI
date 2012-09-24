@@ -37,8 +37,9 @@ namespace SportsStore.WebUI.Infrastructure
             // mock implementation of the IProductRepository Interface
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
 
-            mock.Setup.Setup(m => m.Products).Returns(new List<Product> {
-                new Product{ Name="Ultegra crank set", Price = 300 }
+            mock.Setup(m => m.Products).Returns(new List<Product> {
+                new Product{ Name="Ultegra crank set", Price = 300 },
+                new Product{ Name="Ultegra brake set", Price = 150 }
             }.AsQueryable());
             ninjectKernel.Bind<IProductRepository>().ToConstant(mock.Object);
 
